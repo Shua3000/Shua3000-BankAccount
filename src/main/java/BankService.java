@@ -23,16 +23,22 @@ public class BankService {
      * @param amount the amount to be deposited.
      */
     public void deposit(double amount){
-
+        balance = balance + amount;
     }
 
     /**
      * TODO: implement functionality to decrease the user's balance by an amount.
      * If a withdrawl would result in the user having a negative balance, the withdrawl should not occur.
      * @param amount the amount to be withdrawn.
+     * @return 
      */
-    public void withdraw(double amount){
-
+    public boolean withdraw(double amount){
+        if (amount > balance){    
+            return false;
+          } else {
+            balance -= amount;
+            return true;
+          }
     }
 
     /**
@@ -40,6 +46,6 @@ public class BankService {
      * @return the user's balance.
      */
     public double getBalance(){
-        return 0;
+        return balance;
     }
 }
